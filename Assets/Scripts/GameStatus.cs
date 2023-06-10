@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class GameStatus : MonoBehaviour
 {
@@ -12,12 +13,16 @@ public class GameStatus : MonoBehaviour
 
     public GameObject gameOver;
 
+    public GameObject getReady;
+
     private int score;
+
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
-
+        gameOver.SetActive(false);
+        getReady.SetActive(true);
         Pause();
     }
 
@@ -28,6 +33,7 @@ public class GameStatus : MonoBehaviour
 
         playButton.SetActive(false);
         gameOver.SetActive(false);
+        getReady.SetActive(false);
 
         Time.timeScale = 1f;
         player.enabled = true;
